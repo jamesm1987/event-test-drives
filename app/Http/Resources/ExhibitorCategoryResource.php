@@ -10,7 +10,6 @@ class ExhibitorCategoryResource extends JsonApiResource
      * The resource's attributes.
      */
     public $attributes = [
-        'id',
         'name',
         'slug',
     ];

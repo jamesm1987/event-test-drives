@@ -15,13 +15,13 @@ class ExhibitorCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'event' => [
-                'bail',
-                'required',
-                'string',
-                'exists:events,slug',
-            ],
-            'exhibitors' => ['sometimes', 'boolean'],
+            // 'event' => [
+                // 'bail',
+                // 'required',
+                // 'string',
+                // 'exists:events,slug',
+            // ],
+            // 'exhibitors' => ['sometimes', 'boolean'],
         ];
     }
 }

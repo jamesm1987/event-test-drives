@@ -20,7 +20,20 @@ class ExhibitorCategoryControllerTest extends TestCase
         $response->assertSuccessful()
             ->assertJsonCount(1, 'data')
             ->assertJsonFragment([
-                'id' => $exhibitorCategory->id,
+                'id' => (string) $exhibitorCategory->id,
             ]);
+    }
+
+    public function test_exhibitor_categories_include_exhibitors(): void
+    {        
+        $exhibitorCategory = ExhibitorCategory::factory()
+            ->hasExhibitors(2)
+            ->create();
+
+        $response = $this->getJson('/api/v1/exhibitor-categories?include=exhibitors');
+
+        $response->assertSuccessful()
+            ->assertJsonCount(1, 'data')
+            ->assertJsonCount(2, 'data.0.relationships.exhibitors.data');
     }
 }
