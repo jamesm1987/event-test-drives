@@ -2,22 +2,24 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\JsonApi\JsonApiResource;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ExhibitorCategoryResource extends JsonApiResource
+class ExhibitorCategoryResource extends JsonResource
 {
+    
     /**
-     * The resource's attributes.
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
      */
-    public $attributes = [
-        'name',
-        'slug',
-    ];
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'slug' => $this->slug,
+        ];
+    }
 
-    /**
-     * The resource's relationships.
-     */
-    public $relationships = [
-        'exhibitors'
-    ];
 }

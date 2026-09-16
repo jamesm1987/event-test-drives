@@ -31,7 +31,6 @@ class ExhibitorCategoryControllerTest extends TestCase
             ->create();
 
         $response = $this->getJson('/api/v1/exhibitor-categories?include=exhibitors');
-
         $response->assertSuccessful()
             ->assertJsonCount(1, 'data')
             ->assertJsonCount(2, 'data.0.relationships.exhibitors.data');
