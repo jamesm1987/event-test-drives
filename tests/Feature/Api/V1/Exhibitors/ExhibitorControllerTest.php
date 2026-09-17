@@ -22,6 +22,8 @@ class ExhibitorControllerTest extends TestCase
         ]);
 
         $response = $this->getJson('/api/v1/exhibitor-categories?exhibitors=true');
+
+        dd($response);
         $response->assertSuccessful()
             ->assertJsonCount(1, 'data');
 

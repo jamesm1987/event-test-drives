@@ -21,5 +21,4 @@ class ExhibitorCategoryResource extends JsonResource
             'slug' => $this->slug,
         ];
     }
-
 }

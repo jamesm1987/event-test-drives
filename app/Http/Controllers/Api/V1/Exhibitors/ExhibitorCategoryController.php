@@ -24,7 +24,7 @@ class ExhibitorCategoryController extends BaseController {
         ])
         ->thenReturn()
         ->get();
-
+        dd($categories);
         return ExhibitorCategoryResource::collection($categories);
         
     }
