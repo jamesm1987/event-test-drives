@@ -11,13 +11,15 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable([
     'name',
     'slug',
+    'logo',
+    'exhibitor_category_id'
 ])]
 class Exhibitor extends Model
 {
     use HasFactory;
     public function category(): BelongsTo
     {
-        return $this->belongsTo(ExhibitorCategory::class);
+        return $this->belongsTo(ExhibitorCategory::class, 'exhibitor_category_id');
     }
 
     public function events(): BelongsToMany

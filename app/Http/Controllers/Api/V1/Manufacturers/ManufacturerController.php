@@ -15,11 +15,14 @@ class ManufacturerController extends BaseController {
 
     public function index()
     {
-        return ManufacturerResource::collection(Event::query()->get());
+        return ManufacturerResource::collection(Manufacturer::query()
+            ->orderBy('name')
+            ->get()
+        );
     }
 
-    public function show(Request $request)
+    public function show(Manufacturer $manufacturer): ManufacturerResource
     {
-        return new ManufacturerResource(Event::findOrFail($request->id));
+        return new ManufacturerResource($manufacturer);
     }    
 }

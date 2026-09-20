@@ -21,7 +21,7 @@ class ExhibitorCategoryRequest extends FormRequest
                 // 'string',
                 // 'exists:events,slug',
             // ],
-            // 'exhibitors' => ['sometimes', 'boolean'],
+            'exhibitors' => ['sometimes', 'boolean'],
         ];
     }
 }

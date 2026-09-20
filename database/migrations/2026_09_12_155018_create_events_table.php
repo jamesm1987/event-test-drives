@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('latitude');
             $table->string('longitude');
             $table->string('map_image')->nullable();
+            $table->string('venue_image');
             $table->timestamp('start_at')->index();
             $table->timestamp('end_at');
             $table->timestamp('archived_at')->nullable()->index();

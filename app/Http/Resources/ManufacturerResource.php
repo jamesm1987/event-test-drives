@@ -2,23 +2,23 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\JsonApi\JsonApiResource;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ManufacturerResource extends JsonApiResource
+class ManufacturerResource extends JsonResource
 {
+    
     /**
-     * The resource's attributes.
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
      */
-    public $attributes = [
-        'id',
-        'name',
-        'slug',
-    ];
-
-    /**
-     * The resource's relationships.
-     */
-    public $relationships = [
-        
-    ];
+    public function toArray(Request $request): array
+    {
+        return [
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'logo' => $this->logo,
+        ];
+    }
 }

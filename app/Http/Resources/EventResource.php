@@ -2,30 +2,29 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\JsonApi\JsonApiResource;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class EventResource extends JsonApiResource
+class EventResource extends JsonResource
 {
+    
     /**
-     * The resource's attributes.
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
      */
-    public $attributes = [
-        'id',
-        'name',
-        'slug',
-        'location',
-        'latitude',
-        'longitude',
-        'map_image',
-        'start_at',
-        'end_at',
-        'archived_at',
-    ];
-
-    /**
-     * The resource's relationships.
-     */
-    public $relationships = [
-        // ...
-    ];
+    public function toArray(Request $request): array
+    {
+        return [
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'location' => $this->location,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+            'map_image' => $this->map_image,
+            'start_at' => $this->start_at,
+            'end_at'    => $this->end_at,
+            'archived_at' => $this->archived_at,
+        ];
+    }
 }

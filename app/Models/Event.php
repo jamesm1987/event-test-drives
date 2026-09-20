@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Scopes\ActiveScope;
@@ -15,6 +16,7 @@ use App\Models\Scopes\ActiveScope;
     'location',
     'latitude',
     'longitude',
+    'venue_image',
     'map_image',
     'start_at',
     'end_at',

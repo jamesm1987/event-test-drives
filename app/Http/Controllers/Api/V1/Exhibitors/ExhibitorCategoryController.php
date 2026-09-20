@@ -8,6 +8,7 @@ use App\Http\Resources\ExhibitorCategoryResource;
 use App\Http\Requests\ExhibitorCategoryRequest;
 use App\QueryFilters\IncludeExhibitors;
 use Illuminate\Support\Facades\Pipeline;
+use Illuminate\Http\Request;
 
 class ExhibitorCategoryController extends BaseController {
      
@@ -15,16 +16,15 @@ class ExhibitorCategoryController extends BaseController {
 	 * @return \Illuminate\Http\JsonResponse
 	*/
 
-    public function index(ExhibitorCategoryRequest $request)
+    public function index(Request $request)
     {
-
         $categories = Pipeline::send(ExhibitorCategory::query())
         ->through([
-            IncludeExhibitors::class,
+            new IncludeExhibitors($request->boolean('exhibitors')),
         ])
         ->thenReturn()
         ->get();
-        dd($categories);
+
         return ExhibitorCategoryResource::collection($categories);
         
     }

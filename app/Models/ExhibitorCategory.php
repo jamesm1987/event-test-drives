@@ -20,4 +20,9 @@ class ExhibitorCategory extends Model
     {
         return $this->hasMany(Exhibitor::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

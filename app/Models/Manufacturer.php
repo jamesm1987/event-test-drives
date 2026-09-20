@@ -11,10 +11,16 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable([
     'name',
     'slug',
+    'logo',
 ])]
 class Manufacturer extends Model
 {
-    use HasFactory;    
+    use HasFactory;
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function events(): BelongsToMany
     {
