@@ -17,8 +17,10 @@ class VehicleForm
                     ->relationship('manufacturer', 'name'),
                 TextInput::make('model')
                     ->required(),
-                FileUpload::make('image')
-
+                FileUpload::make('image'),
+                TextInput::make('model')
+                    ->required(),
+                FileUpload::make('image'),
             ]);
     }
 }
