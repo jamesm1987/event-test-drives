@@ -18,9 +18,6 @@ class VehicleForm
                 TextInput::make('model')
                     ->required(),
                 FileUpload::make('image'),
-                TextInput::make('model')
-                    ->required(),
-                FileUpload::make('image'),
             ]);
     }
 }
