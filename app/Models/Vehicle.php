@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 #[Fillable([
-    'name'
+    'manufacturer_id',
+    'model',
+    'image',
 ])]
 class Vehicle extends Model
 {

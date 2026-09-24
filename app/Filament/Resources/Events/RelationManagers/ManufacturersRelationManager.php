@@ -16,15 +16,15 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class VehiclesRelationManager extends RelationManager
+class ManufacturersRelationManager extends RelationManager
 {
-    protected static string $relationship = 'vehicles';
+    protected static string $relationship = 'manufacturers';
 
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('model')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -33,9 +33,9 @@ class VehiclesRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('model')
+            ->recordTitleAttribute('name')
             ->columns([
-                TextColumn::make('model')
+                TextColumn::make('name')
                     ->searchable(),
             ])
             ->filters([

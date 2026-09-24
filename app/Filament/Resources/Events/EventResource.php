@@ -14,7 +14,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use App\Filament\Resources\Events\RelationManagers\VehiclesRelationManager;
+use App\Filament\Resources\Events\RelationManagers\{ManufacturersRelationManager, VehiclesRelationManager};
+
 
 class EventResource extends Resource
 {
@@ -37,6 +38,7 @@ class EventResource extends Resource
     public static function getRelations(): array
     {
         return [
+            ManufacturersRelationManager::class,
             VehiclesRelationManager::class
         ];
     }
